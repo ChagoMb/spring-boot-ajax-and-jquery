@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User-table</title>
+</head>
+<body>
+
+<div th:fragment="user-table-page">
+    <div th:switch="${users}">
+        <h2 th:case="null">No users yet!</h2>
+        <div th:case="*">
+            <table class="table table-striped table-hover">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col" class="font-weight-bold">ID</th>
+                    <th scope="col">First name</th>
+                    <th scope="col">Last name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Roles</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="user : ${users}">
+                    <th scope="row" th:text="${user.id}"></th>
+                    <td th:text="${user.firstName}"></td>
+                    <td th:text="${user.lastName}"></td>
+                    <td th:text="${user.age}"></td>
+                    <td th:text="${user.email}"></td>
+                    <td>
+                        <a
+                                th:each="role : ${user.roles}"
+                                th:text="${role.role} + ' '">
+                        </a>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal"
+                                th:data-target="${'#updateModal' + user.id}" id="tableBtn" th:value="${user.id}">
+                            Edit <span class="icon"><i class="fa fa-pencil-square-o"></i></span>
+                        </button>
+                        <div th:insert="~{/admin/user-update::user-update-page}"></div>
+                    </td>
+                    <td>
+                        <form action="#" th:action="@{/admin/remove/{id}(id=${user.id})}">
+                            <button type="submit" class="btn btn-danger btn-sm">
+                                Delete <span class="icon"><i class="fa fa-times"></i></span>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

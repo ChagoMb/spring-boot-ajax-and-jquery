@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update user</title>
+<body>
+
+<div th:fragment="user-update-page">
+    <div class="modal fade" th:attr="id='updateModal' + ${user.id}" role="dialog"
+         aria-labelledby="updateModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateModalLabel">Edit user</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form th:attr="id='updateUserForm' + ${user.id}">
+                        <div class="form-group">
+                            <label class="font-weight-bold">Id</label><br/>
+                            <input readonly type="number" class="form-control form-control-sm" id="ident"
+                                   name="ident" th:value="${user.id}"><br/>
+                            <label class="font-weight-bold">First name</label>
+                            <input required type="text" class="form-control form-control-sm " id="firstName"
+                                   name="firstName" placeholder="First name"><br/>
+                            <label class="font-weight-bold">Last name</label>
+                            <input required type="text" class="form-control form-control-sm" id="lastName"
+                                   name="lastName" placeholder="Last name"><br/>
+                            <label class="font-weight-bold">Age</label>
+                            <input required type="number" class="form-control form-control-sm" id="age"
+                                   name="age" placeholder="Age"><br/>
+                            <label class="font-weight-bold">Email</label>
+                            <input required type="email" class="form-control form-control-sm" id="email"
+                                   name="email" placeholder="mail@exaple.com"><br/>
+                            <label class="font-weight-bold">Password</label>
+                            <input required type="password" class="form-control form-control-sm"
+                                   name="password" id="password" placeholder="Password"><br/>
+                            <label class="font-weight-bold">Role</label>
+                            <select name="roles" id="roles" class="form-control form-control-sm " size="2" multiple>
+                                <option th:value="USER">USER</option>
+                                <option th:value="ADMIN">ADMIN</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" id="updateUserBtn">Edit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

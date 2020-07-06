@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/add-user.js"></script>
+    <title>Add new user</title>
+<body>
+<div th:fragment="user-add-page">
+    <form id="addUserForm">
+        <div class="form-group">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-sm-4">
+                    <label>First name</label>
+                    <input required type="text" class="form-control form-control-sm" id="firstName" placeholder="First name"><br/>
+                    <label class="my-0">Last name</label>
+                    <input required type="text" class="form-control form-control-sm" id="lastName" placeholder="Last name"><br/>
+                    <label>Age</label>
+                    <input required type="number" class="form-control form-control-sm" id="age" placeholder="Age"><br/>
+                    <label>Email</label>
+                    <input required type="email" class="form-control form-control-sm" id="email"
+                           placeholder="mail@exaple.com"><br/>
+                    <label>Password</label>
+                    <input required type="password" class="form-control form-control-sm" id="password" placeholder="Password"><br/>
+                    <label>Role</label>
+                    <select id="roles" class="form-control form-control-sm " size="2" multiple>
+                        <option th:value="USER">USER</option>
+                        <option th:value="ADMIN">ADMIN</option>
+                    </select>
+                    <div class="my-1">
+                        <button type="submit" class="btn btn-success btn-block">
+                            Add new user <i class="fa fa-user-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
