@@ -1,20 +1,22 @@
 $(document).ready(function () {
 
 //sub form
-    $("#addUserForm").on("submit", function (event) {
-        event.preventDefault();
-        ajaxPost();
+    $("#addUserBtn").on("click", function () {
+        $("#addUserForm").on("submit", function (event) {
+            event.preventDefault();
+            ajaxPostAdd();
+        });
     });
 
-    function ajaxPost() {
+    function ajaxPostAdd() {
 
-        const data = {
-            firstName: $("#firstName").val(),
-            lastName: $("#lastName").val(),
-            age: $("#age").val(),
-            email: $("#email").val(),
-            password: $("#password").val(),
-            roles: $("#roles").val()
+        let data = {
+            firstName: $("#addFirstName").val(),
+            lastName: $("#addLastName").val(),
+            age: $("#addAge").val(),
+            email: $("#addEmail").val(),
+            password: $("#addPassword").val(),
+            roles: $("#addRoles").val()
         };
 
         $.ajax({

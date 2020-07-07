@@ -20,23 +20,23 @@
             <div class="row justify-content-center align-items-center">
                 <div class="col-sm-4">
                     <label>First name</label>
-                    <input required type="text" class="form-control form-control-sm" id="firstName" placeholder="First name"><br/>
+                    <input required type="text" class="form-control form-control-sm" id="addFirstName" placeholder="First name"><br/>
                     <label class="my-0">Last name</label>
-                    <input required type="text" class="form-control form-control-sm" id="lastName" placeholder="Last name"><br/>
+                    <input required type="text" class="form-control form-control-sm" id="addLastName" placeholder="Last name"><br/>
                     <label>Age</label>
-                    <input required type="number" class="form-control form-control-sm" id="age" placeholder="Age"><br/>
+                    <input required type="number" class="form-control form-control-sm" id="addAge" placeholder="Age"><br/>
                     <label>Email</label>
-                    <input required type="email" class="form-control form-control-sm" id="email"
+                    <input required type="email" class="form-control form-control-sm" id="addEmail"
                            placeholder="mail@exaple.com"><br/>
                     <label>Password</label>
-                    <input required type="password" class="form-control form-control-sm" id="password" placeholder="Password"><br/>
+                    <input required type="password" class="form-control form-control-sm" id="addPassword" placeholder="Password"><br/>
                     <label>Role</label>
-                    <select id="roles" class="form-control form-control-sm " size="2" multiple>
+                    <select id="addRoles" class="form-control form-control-sm " size="2" multiple>
                         <option th:value="USER">USER</option>
                         <option th:value="ADMIN">ADMIN</option>
                     </select>
                     <div class="my-1">
-                        <button type="submit" class="btn btn-success btn-block">
+                        <button type="submit" class="btn btn-success btn-block" id="addUserBtn">
                             Add new user <i class="fa fa-user-plus"></i>
                         </button>
                     </div>

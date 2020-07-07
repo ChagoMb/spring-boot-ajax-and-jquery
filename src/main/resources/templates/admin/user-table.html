@@ -40,10 +40,9 @@
                     </td>
                     <td>
                         <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal"
-                                th:data-target="${'#updateModal' + user.id}" id="tableBtn" th:value="${user.id}">
+                                data-target="#updateModal" th:data-whatever="${user.id}">
                             Edit <span class="icon"><i class="fa fa-pencil-square-o"></i></span>
                         </button>
-                        <div th:insert="~{/admin/user-update::user-update-page}"></div>
                     </td>
                     <td>
                         <form action="#" th:action="@{/admin/remove/{id}(id=${user.id})}">
@@ -56,6 +55,7 @@
                 </tbody>
             </table>
         </div>
+        <div th:insert="~{/admin/user-update::user-update-page}"></div>
     </div>
 </div>
 </body>

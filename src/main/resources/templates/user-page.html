@@ -3,55 +3,103 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta charset="UTF-8">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <title>User page</title>
+    <title>Admin</title>
 </head>
 <body>
-<div th:fragment="user-page">
-    <div th:switch="${user}">
-        <h2 th:case="null">No users yet!</h2>
-        <div th:case="*">
-            <table class="table table-striped table-hover">
-                <thead class="thead-secondary">
-                <tr>
-                    <th scope="col" class="font-weight-bold">ID</th>
-                    <th scope="col">First name</th>
-                    <th scope="col">Last name</th>
-                    <th scope="col">Age</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Roles</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row" th:text="${user.id}"></th>
-                    <td th:text="${user.firstName}"></td>
-                    <td th:text="${user.lastName}"></td>
-                    <td th:text="${user.age}"></td>
-                    <td th:text="${user.email}"></td>
-                    <td>
-                        <a
-                                th:each="role : ${user.roles}"
-                                th:text="${role.role} + ' '">
-                        </a>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+
+<div th:insert="~{/navbar/nav-bar::navbar}"></div>
+
+<div class="row my-2">
+    <div class="col-2">
+        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <a class="nav-link bg-secondary text-white" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-user"
+               role="tab"
+               aria-controls="v-pills-user" aria-selected="false">User</a>
         </div>
+    </div>
+    <div class="col-8">
+        <div class="tab-content" id="v-pills-tabContent">
+            <div class="tab-pane fade" id="v-pills-user" role="tabpanel" aria-labelledby="v-pills-user-tab">
+                <table class="table table-striped table-hover">
+                    <thead class="thead-light">
+                    <tr>
+                        <th scope="col">
+                            <h1>User information-page</h1>
+                        </th>
+                    </tr>
+                    </thead>
+                </table>
+                <table class="table table-striped table-hover">
+                    <thead class="thead-light">
+                    <tr>
+                        <th scope="col">
+                            <p2>About user</p2>
+                        </th>
+                    </tr>
+                    </thead>
+                </table>
+                <div th:fragment="user-page">
+                    <div th:switch="${user}">
+                        <h2 th:case="null">No users yet!</h2>
+                        <div th:case="*">
+                            <table class="table table-striped table-hover">
+                                <thead class="thead-secondary">
+                                <tr>
+                                    <th scope="col" class="font-weight-bold">ID</th>
+                                    <th scope="col">First name</th>
+                                    <th scope="col">Last name</th>
+                                    <th scope="col">Age</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Roles</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th scope="row" th:text="${user.id}"></th>
+                                    <td th:text="${user.firstName}"></td>
+                                    <td th:text="${user.lastName}"></td>
+                                    <td th:text="${user.age}"></td>
+                                    <td th:text="${user.email}"></td>
+                                    <td>
+                                        <a
+                                                th:each="role : ${user.roles}"
+                                                th:text="${role.role} + ' '">
+                                        </a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="conteiner ml-5 my-1 col-md-2 bg-white">
     </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ibs/popper.ajax/ljs/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
 </body>
 </html>

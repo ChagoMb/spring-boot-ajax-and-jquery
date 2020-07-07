@@ -25,10 +25,4 @@ public class RestWebController {
         userService.saveUser(user);
         return ResponseEntity.ok().body(user);
     }
-
-    @PostMapping(value = "/update")
-    public ResponseEntity<User> postUpdate(@RequestBody User user) {
-        userService.saveUser(user);
-        return ResponseEntity.ok().body(user);
-    }
 }

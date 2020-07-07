@@ -8,7 +8,7 @@
 <body>
 
 <div th:fragment="user-update-page">
-    <div class="modal fade" th:attr="id='updateModal' + ${user.id}" role="dialog"
+    <div class="modal fade" id="updateModal" role="dialog"
          aria-labelledby="updateModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -19,11 +19,11 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form th:attr="id='updateUserForm' + ${user.id}">
+                    <form id="updateUserForm">
                         <div class="form-group">
                             <label class="font-weight-bold">Id</label><br/>
                             <input readonly type="number" class="form-control form-control-sm" id="ident"
-                                   name="ident" th:value="${user.id}"><br/>
+                                   name="ident"><br/>
                             <label class="font-weight-bold">First name</label>
                             <input required type="text" class="form-control form-control-sm " id="firstName"
                                    name="firstName" placeholder="First name"><br/>
